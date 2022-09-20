@@ -17,7 +17,7 @@ public class MemberDAO {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	
-	final String sql_selectOne="SELECT * FROM MEMBER WHERE MID=? ";
+	final String sql_selectOne="SELECT * FROM MEMBER WHERE MID=? AND MPW=?";
 	final String sql_selectAll="SELECT * FROM MEMBER ";
 	final String sql_insert="INSERT INTO MEMBER(MID,MPW,NAME,ROLE) VALUES(?,?,?,?)";
 	final String sql_update="UPDATE MEMBER SET NAME=?,MPW=? WHERE MID=?";
@@ -70,6 +70,7 @@ public class MemberDAO {
 			System.out.println("SelectOne 시작");
 			pstmt=conn.prepareStatement(sql_selectOne);
 			pstmt.setString(1, vo.getMid());
+			pstmt.setString(2, vo.getMpw());
 			ResultSet rs=pstmt.executeQuery();
 			if(rs.next()) {
 				MemberVO data=new MemberVO();

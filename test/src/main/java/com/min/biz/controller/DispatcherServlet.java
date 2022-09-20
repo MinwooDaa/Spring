@@ -18,6 +18,7 @@ public class DispatcherServlet extends HttpServlet {
 	private ViewResolver viewResolver;
 	// init() 메서드를 통해서 DI 주입
 	public void init() throws ServletException {
+		System.out.println("8");
 		handlerMapping=new HandlerMapping();
 		viewResolver=new ViewResolver();
 		viewResolver.setPrefix("./");
@@ -36,7 +37,6 @@ public class DispatcherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		doAction(request,response);
 	}
 
@@ -53,17 +53,22 @@ public class DispatcherServlet extends HttpServlet {
 		command=command.substring(command.lastIndexOf("/"));
 		System.out.println(command);
 		
+		/*
 		Controller ctrl = handlerMapping.getController(command);
 		String viewName=ctrl.handleRequest(request, response);
-		
+		System.out.println("1");
 		String view=null;
 		if(viewName.contains(".do")) {
 			view=viewName;
+			System.out.println("2");
 		}
 		else {
 			view=viewResolver.getView(viewName);
+			System.out.println("3");
 		}
+		System.out.println("4");
 		response.sendRedirect(view);
+		*/
 	}
 
 }

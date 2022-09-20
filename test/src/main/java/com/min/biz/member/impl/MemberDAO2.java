@@ -24,20 +24,20 @@ public class MemberDAO2 {
 	final String sql_delete="DELETE MEMBER WHERE MID=? AND MPW=?";
 	
 	
-	void insertMember(MemberVO vo) {
+	public void insertMember(MemberVO vo) {
 		jdbcTemplate.update(sql_insert, vo.getMid(),vo.getMpw(),vo.getName(),vo.getRole());
 	}
-	void updateMember(MemberVO vo) {
+	public void updateMember(MemberVO vo) {
 		jdbcTemplate.update(sql_update, vo.getMpw(),vo.getMid());
 	}
-	void deleteMember(MemberVO vo) {
+	public void deleteMember(MemberVO vo) {
 		jdbcTemplate.update(sql_delete, vo.getMid(),vo.getMpw());
 	}
-	MemberVO selectOneMember(MemberVO vo) {
+	public MemberVO selectOneMember(MemberVO vo) {
 		Object[] args= {vo.getMid(),vo.getMpw()};
 		return jdbcTemplate.queryForObject(sql_selectOne, args,new MemberRowMapper());
 	}
-	List<MemberVO> selectAllMember(MemberVO vo){
+	public List<MemberVO> selectAllMember(MemberVO vo){
 		return jdbcTemplate.query(sql_selectAll, new MemberRowMapper());
 	}
 	

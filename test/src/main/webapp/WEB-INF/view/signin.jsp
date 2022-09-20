@@ -8,7 +8,7 @@
 -->
 <html>
 	<head>
-		<title>login</title>
+		<title>sign in</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,23 +19,6 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
-						<h1>Spring Project</h1>
-						<p>spring project by  <a href="https://blog.naver.com/coding_helper">@coding_helper</a></p>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
-							<li><a href="#first">First Section</a></li>
-							<li><a href="#second">Second Section</a></li>
-							<li><a href="#cta">Get Started</a></li>
-						</ul>
-					</nav>
-
 				<!-- Main -->
 					<div id="main">
 
@@ -44,9 +27,9 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>login</h2>
+											<h2>sign in</h2>
 										</header>
-										<form action="login.do" method="post">
+										<form action="signin.do" method="post">
 										<table class="alt">
 												<tbody>
 													<tr>
@@ -58,11 +41,23 @@
 														<td colspan="2"><input type="password" name="mpw" required></td>
 													</tr>
 													<tr>
-														<td colspan="3" align="right"><input type="submit" class="button primary" value="LOGIN"> <a href="signin.jsp" class="button primary">SIGN IN</a> </td>
+														<td>NAME</td>
+														<td colspan="2"><input type="text" name="name" required></td>
+													</tr>
+													<tr>
+														<td>ROLE</td>
+														<td colspan="2"><select name="role">
+															<option selected>MEMBER</option>
+															<option>ADMIN</option>
+														</select></td>
+													</tr>
+													<tr>
+														<td colspan="3" align="right"><input type="submit" class="button primary" value="SIGN IN"> </td>
 													</tr>
 												</tbody>
 										</table>
 										</form>
+										<a href="login.jsp">go to login</a>
 									</div>
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
 								</div>

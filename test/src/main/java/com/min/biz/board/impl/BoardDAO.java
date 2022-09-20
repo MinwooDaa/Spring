@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.min.biz.board.BoardVO;
 import com.min.biz.common.JDBCUtil;
 
@@ -62,7 +60,7 @@ public class BoardDAO {
 			JDBCUtil.disconnect(pstmt, conn);
 		}
 	}
-	BoardVO selectOneBoard(BoardVO vo) {
+	public BoardVO selectOneBoard(BoardVO vo) {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_selectOne);
@@ -85,7 +83,7 @@ public class BoardDAO {
 		}
 		return null;
 	}
-	List<BoardVO> selectAllBoard(BoardVO vo) {
+	public List<BoardVO> selectAllBoard(BoardVO vo) {
 		List<BoardVO> datas=new ArrayList<BoardVO>();
 		conn=JDBCUtil.connect();
 		try {

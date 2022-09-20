@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE HTML>
 <!--
 	Stellar by HTML5 UP
@@ -8,7 +9,7 @@
 -->
 <html>
 	<head>
-		<title>login</title>
+		<title>main</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -19,23 +20,6 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
-						<h1>Spring Project</h1>
-						<p>spring project by  <a href="https://blog.naver.com/coding_helper">@coding_helper</a></p>
-					</header>
-
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro" class="active">Introduction</a></li>
-							<li><a href="#first">First Section</a></li>
-							<li><a href="#second">Second Section</a></li>
-							<li><a href="#cta">Get Started</a></li>
-						</ul>
-					</nav>
-
 				<!-- Main -->
 					<div id="main">
 
@@ -44,27 +28,37 @@
 								<div class="spotlight">
 									<div class="content">
 										<header class="major">
-											<h2>login</h2>
+											<h2>main</h2>
 										</header>
-										<form action="login.do" method="post">
-										<table class="alt">
+										<h2>HELLO , <a href="mypage.do">${member.name}</a> !&nbsp;&nbsp;:D</h2>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>num</th>
+														<th>title</th>
+														<th>writer</th>
+														<th>cnt</tr>
+												</thead>
 												<tbody>
+												<c:forEach var="v" items="${datas}">
 													<tr>
-														<td>ID</td>
-														<td colspan="2"><input type="text" name="mid" required></td>
+														<td><a href="board.do?bid=${v.bid}">${v.bid}</a></td>
+														<td>${v.title}</td>
+														<td>${v.writer}</td>
+														<td>${v.cnt}</td>
 													</tr>
-													<tr>
-														<td>PASSWORD</td>
-														<td colspan="2"><input type="password" name="mpw" required></td>
-													</tr>
-													<tr>
-														<td colspan="3" align="right"><input type="submit" class="button primary" value="LOGIN"> <a href="signin.jsp" class="button primary">SIGN IN</a> </td>
-													</tr>
+												</c:forEach>
 												</tbody>
-										</table>
-										</form>
+												<tfoot>
+													<tr>
+														<td colspan="3"></td>
+														<td><a href="logout.do">logout</a></td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
 									</div>
-									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
 								</div>
 							</section>
 
